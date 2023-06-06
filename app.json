@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "tourist-app-frontend",
+    "slug": "tourist-app-frontend"
+  }
+}
