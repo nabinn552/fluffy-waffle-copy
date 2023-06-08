@@ -1,7 +1,8 @@
-import { useRouter, Tabs } from "expo-router";
-import { View, Text } from "react-native";
+import { useRouter, Tabs, Link } from "expo-router";
+import { View, Text, Alert } from "react-native";
 import * as Svg from "react-native-svg";
 import { icons } from "../../constants";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const MenuIcon = () => {
   return (
@@ -14,7 +15,11 @@ const MenuIcon = () => {
 const UserProfile = () => {
   return (
     <View style={{ paddingRight: 25 }}>
-      <Svg.SvgXml xml={icons.profileCircle} />
+      <Link href="/modal">
+        <TouchableOpacity>
+          <Svg.SvgXml xml={icons.profileCircle} />
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 };
@@ -47,20 +52,39 @@ const userIcon = () => {
     </View>
   );
 };
+const locationIcon = () => {
+  return (
+    <View>
+      <Svg.SvgXml xml={icons.location} />
+    </View>
+  );
+};
 
-export default () => {
+export default function Layout() {
   return (
     <Tabs
       screenOptions={{
         headerLeft: MenuIcon,
         headerRight: UserProfile,
         headerTitle: "",
+        tabBarStyle: {
+          backgroundColor: "white",
+          height: 65,
+        },
+        tabBarShowLabel: false,
       }}
     >
       <Tabs.Screen
-        name="root"
+        name="home"
         options={{
           tabBarIcon: HomeIcon,
+          headerShown: true,
+        }}
+      />
+      <Tabs.Screen
+        name="location"
+        options={{
+          tabBarIcon: locationIcon,
         }}
       />
       <Tabs.Screen
@@ -70,11 +94,11 @@ export default () => {
         }}
       />
       <Tabs.Screen
-        name="map"
+        name="setting"
         options={{
           tabBarIcon: settingIcon,
         }}
       />
     </Tabs>
   );
-};
+}

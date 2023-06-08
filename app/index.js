@@ -1,31 +1,36 @@
 import { Redirect, useRouter } from "expo-router";
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import Welcome from "../components/welcome/Welcome";
 
 export default function Page() {
   const router = useRouter();
-
-  return <Redirect href={"/home"} />;
-  // return (
-  //   <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-  //     <Text style={{ fontSize: 50 }}>index</Text>
-  //     <Text
-  //       onPress={() => router.push("/screen1")}
-  //       style={{ fontSize: 20, marginTop: 10 }}
-  //     >
-  //       Screen 1
-  //     </Text>
-  //     <Text
-  //       onPress={() => router.push("/screen2")}
-  //       style={{ fontSize: 20, marginTop: 10 }}
-  //     >
-  //       Screen 2
-  //     </Text>
-  //     <Text
-  //       onPress={() => router.push("/screen3")}
-  //       style={{ fontSize: 20, marginTop: 10 }}
-  //     >
-  //       Screen 3
-  //     </Text>
-  //   </View>
-  // );
+  return <Welcome />;
 }
+//   const router = useRouter();
+//   return (
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Text className = "font-bold text-2xl text-red-600">Screen first welcome page</Text>
+//       <View style={{ marginTop: 40 }}>
+//         <TouchableOpacity
+//           style={{
+//             width: 200,
+//             height: 50,
+//             borderRadius: 10,
+//             backgroundColor: "skyblue",
+//             alignItems: "center",
+//             justifyContent: "center",
+//           }}
+//           onPress={() => router.push("/signin")}
+//         >
+//           <Text>login screen</Text>
+//         </TouchableOpacity>
+//       </View>
+//     </View>
+//   );
+// }
+// export default function Page() {
+//   const router = useRouter();
+//   return <Redirect href={"/home"} />;
+
+// }

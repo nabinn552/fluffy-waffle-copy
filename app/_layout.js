@@ -1,4 +1,4 @@
-import { Stack, Tabs } from "expo-router";
+import { Stack } from "expo-router";
 
 export default () => {
   return (
@@ -14,20 +14,35 @@ export default () => {
         },
         headerTitleAlign: "center",
       }}
+      initialRouteName="(tabs)"
     >
       <Stack.Screen
-        name="modal"
+        name="(tabs)"
         options={{
-          // Set the presentation mode to modal for our modal route.
-          presentation: "modal",
-          headerStyle: {
-            backgroundColor: "yellow",
-          },
+          headerShown: false,
         }}
       />
 
       <Stack.Screen
-        name="home"
+        name="(packages)/modal"
+        options={{
+          presentation: "modal",
+        }}
+      />
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="(auth)/signin"
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="(auth)/signup"
         options={{
           headerShown: false,
         }}
